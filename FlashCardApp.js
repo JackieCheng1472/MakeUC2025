@@ -29,6 +29,8 @@ export default function FlashcardApp() {
           const aMatch = line.match(/a:\s*(.+)/i);
           question = qMatch ? qMatch[1].trim() : '';
           answer = aMatch ? aMatch[1].trim() : '';
+        } else if (line.toLowerCase().includes(':')) {
+          [question, answer] = line.split(':').map(s => s.trim());
         } else if (line.includes(',')) {
           [question, answer] = line.split(',').map(s => s.trim());
         } else {
